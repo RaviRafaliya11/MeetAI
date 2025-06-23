@@ -13,7 +13,7 @@ export const HomeView = () => {
   }
   return (
     <div>
-      {session.user.name}
+      <p>Hello {session.user.name}</p>
       <Button
         onClick={() =>
           authClient.signOut({
