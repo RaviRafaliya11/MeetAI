@@ -9,6 +9,9 @@ import { useEffect, useState } from "react";
 export const DashboardNavbar = () => {
   const { state, toggleSidebar, isMobile } = useSidebar();
   const [commandOpen, setCommandOpen] = useState(false);
+  const isMac =
+    typeof window !== "undefined" &&
+    navigator.platform.toUpperCase().indexOf("MAC") >= 0;
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -41,7 +44,12 @@ export const DashboardNavbar = () => {
         >
           <SearchIcon /> Search
           <kbd className="ml-auto pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground">
-            <span className="text-xs ">&#8984;</span>K
+            <span
+              dangerouslySetInnerHTML={{
+                __html: isMac ? "&#8984;" : "Ctrl",
+              }}
+            ></span>
+            + K
           </kbd>
         </Button>
       </nav>
