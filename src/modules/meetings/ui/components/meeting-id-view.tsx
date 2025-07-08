@@ -8,6 +8,7 @@ import {
   useQueryClient,
   useSuspenseQuery,
 } from "@tanstack/react-query";
+// import { MeetingIdViewHeader } from "../components/agent-id-view-header";
 import { GeneratedAvatar } from "@/components/generated-avatar";
 import { Badge } from "@/components/ui/badge";
 import { VideoIcon } from "lucide-react";
@@ -18,9 +19,7 @@ import { useState } from "react";
 import { MeetingIdViewHeader } from "../components/meeting-id-view-header";
 import { UpdateMeetingDialog } from "../components/update-meeting-dialog";
 import { UpcomingState } from "../components/upcoming-state";
-import { ActiveState } from "../components/active-state";
-import { CancelledState } from "../components/cancelled-state";
-import { ProcessingState } from "../components/processing-state";
+// import { UpdateAgentDialog } from "../components/update-agent-dialog";
 
 interface Props {
   meetingId: string;
@@ -90,10 +89,9 @@ export const MeetingIdView = ({ meetingId }: Props) => {
             onCancelMeeting={() => {}}
           />
         )}
-        {isActive && <ActiveState meetingId={meetingId} />}
-        {isProcessing && <ProcessingState />}
-        {isCancelled && <CancelledState />}
         {isCompleted && <div>completed</div>}
+        {isProcessing && <div>processing</div>}
+        {isCancelled && <div>cancelled</div>}
 
         <div className="bg-white rounded-lg border">
           <div className="px-4 py-5 gap-y-5 flex flex-col col-span-5">
