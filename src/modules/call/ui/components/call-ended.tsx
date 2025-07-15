@@ -12,8 +12,8 @@ export const CallEnded = () => {
             <p className="text-sm">Summary will appear in a few minutes.</p>
           </div>
 
-          <Button asChild variant="ghost">
-            <Link href="/meetings">Cancel</Link>
+          <Button asChild>
+            <Link href="/meetings">Back to meetings</Link>
           </Button>
         </div>
       </div>
